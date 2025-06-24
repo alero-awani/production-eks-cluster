@@ -1,0 +1,17 @@
+# Serv
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+  namespace: backend
+  labels:
+    app: golang-backend
+spec:
+  selector:
+    app: golang-backend
+  ports:
+    - name: http
+      port: 9000
+      targetPort: 9000
+      protocol: TCP
+  type: ClusterIP

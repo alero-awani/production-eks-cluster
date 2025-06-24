@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: react-app-config
+  namespace: frontend
+data:
+  REACT_APP_BASE_URL: "http://backend-service:9000"
+  REACT_APP_PRODUCT_URL: "http://backend-service:9000"
+  REACT_APP_TRANSACTION_URL: "http://backend-service:9000"

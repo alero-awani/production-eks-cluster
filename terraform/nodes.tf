@@ -50,7 +50,7 @@ resource "aws_eks_node_group" "general" {
   scaling_config {
     desired_size = 2
     max_size     = 4
-    min_size     = 0
+    min_size     = 2
   }
 
   update_config {
@@ -65,6 +65,7 @@ resource "aws_eks_node_group" "general" {
     aws_iam_role_policy_attachment.amazon_eks_worker_node_policy,
     aws_iam_role_policy_attachment.amazon_eks_cni_policy,
     aws_iam_role_policy_attachment.amazon_ec2_container_registry_read_only,
+    aws_eks_cluster.eks
   ]
 
   # Allow external changes without Terraform plan difference

@@ -1,13 +1,11 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
   labels:
     app: frontend
-  namespace: frontend
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: frontend
@@ -21,16 +19,6 @@ spec:
           image: aleroawani/buysale-frontend:latest
           ports:
             - containerPort: 3030
-      envFrom:
-        - configMapRef:
-            name: react-app-config
-          # resources:
-          #   requests:
-          #     memory: 1Gi
-          #     cpu: 100m
-          #   limits:
-          #     memory: 1Gi
-          #     cpu: 100m
           env:
             - name: NODE_ENV
               value: "production"
